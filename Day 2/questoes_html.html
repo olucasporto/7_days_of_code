@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio - day 2</title>
+</head>
+<body>
+  <script>
+
+    const nome = prompt("Qual é o seu nome?");
+    const idade = prompt("Quantos anos você tem?");
+    const linguagem = prompt("Qual linguagem de programação você está estudando?");
+    
+    const msgInicial = `Olá ${nome}, você tem ${idade} anos e já está aprendendo ${linguagem}!`;
+
+    alert(msgInicial);
+
+    const gostoPelaLinguagem = prompt(`Você gosta de estudar ${linguagem}? Responda com o número 1 para SIM ou 2 para NÃO.`);
+    const msgGostaLinguagem = "Muito bom! Continue estudando e você terá muito sucesso!";
+    const msgNaoGostaLinguagem = "Ahh que pena... Já tentou aprender outras linguagens?";
+    
+    if(gostoPelaLinguagem == 1){
+      alert(msgGostaLinguagem);
+    } else {
+      alert(msgNaoGostaLinguagem);
+    };
+    
+
+  </script>
+</body>
+</html>
