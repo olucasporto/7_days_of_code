@@ -1,0 +1,67 @@
+<script>
+
+let operacao;
+let x;
+let y;
+
+function valores(){
+  x = parseInt(prompt("Qual é o primeiro valor da sua operação?"));
+  y = parseInt(prompt("Qual é o segundo valor da sua operação?"));
+}
+
+function soma(x,y){
+  return x + y;
+}
+
+function subtracao(x,y){
+  return x - y;
+}
+
+function multiplicacao(x,y){
+  return x * y;
+}
+
+function divisao(x,y){
+  return x / y;
+}
+
+alert('Bem vindo a calculadora!');
+
+while(operacao != 5){
+
+  operacao = prompt("Quais das seguintes operações você deseja realizar?\n1. Adição\n2. Subtração\n3. Multiplicação\n4. Divisão\n5. Sair");
+
+  switch (operacao) {
+    case '1':
+      valores();
+      alert("O valor da sua soma resultou em " + soma(x,y) + ".");
+      break;
+    case '2':
+      valores();
+      alert("O valor da sua subtração resultou em " + subtracao(x,y) + ".");
+      break;
+    case '3':
+      valores();
+      alert("O valor da sua multiplicação resultou em " + multiplicacao(x,y) + ".");
+      break;
+    case '4':
+      valores();
+      alert("O valor da sua divisão resultou em " + divisao(x,y) + ".");
+      break;
+  }
+
+  if(operacao == '5') {
+    break;
+  }
+  
+  let quit = prompt("Gostaria de fazer outra operação? Se a resposta for sim, digite 1.");
+  if(quit != '1'){
+    break;
+  }
+
+}
+
+alert('Obrigado por usar nossa calculadora!');
+
+
+</script>
