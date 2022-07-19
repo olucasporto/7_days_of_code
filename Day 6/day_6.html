@@ -1,0 +1,157 @@
+<script>
+
+  //variaveis
+  let lista_de_compras = [];
+  let compras_na_categoria = [];
+  let categorias = [];
+  let categorias_printadas = [];
+  let msg_lista_1 = '';
+  let msg_lista_2 = '';
+
+  //funções
+  function formatador_de_categorias (categoria) {
+
+    return categoria[0].toUpperCase() + categoria.substring(1).toLowerCase();
+
+  }
+
+  function mostrar_lista_de_compras () {
+
+    alert(msg_lista_1 + msg_lista_2);
+
+  }
+
+  function criar_lista_de_compras(mensagem) {
+
+    msg_lista_1 = mensagem;
+    msg_lista_2 = '';
+    categorias_printadas = [];
+
+    categorias.forEach((categoria_da_lista) => {
+
+      let categoria_ja_printada = categorias_printadas.find(e => e == categoria_da_lista); // ver se categoria já foi printada
+
+      compras_na_categoria = []; // resetar lista de compras a cada nova categoria
+
+      let categoria_achada_na_lista = 0;
+
+      lista_de_compras.forEach((compra) => {
+
+        let categoria_substring = compra.substring(0,(compra.indexOf("-")));
+
+        if (categoria_substring == categoria_da_lista) {
+          categoria_achada_na_lista++
+        }
+
+      })
+
+      if (categoria_achada_na_lista > 0 && categoria_ja_printada == undefined) { // se categoria ainda não foi printada, inicia o if
+
+        categorias_printadas.push(categoria_da_lista); // adiciona categoria a lista de categorias printadas
+
+        let categoria_formatada = formatador_de_categorias(categoria_da_lista); // transforma a categoria em uma formatação camel case
+
+        msg_lista_2 = msg_lista_2 + categoria_formatada + ': '; //adiciona o título da categoria
+
+        lista_de_compras.forEach((compra_da_lista) => {
+
+          let categoria_da_concatenacao = compra_da_lista.substring(0,(compra_da_lista.indexOf("-"))) //extrai da string 'categoria-comida' só a categoria
+
+          if(categoria_da_concatenacao == categoria_da_lista){ // compara pra ver se a categoria extraída é igual a categoria que esta sendo trabalhada agora
+
+            let compra_da_concatenacao = compra_da_lista.substring((compra_da_lista.indexOf("-") + 1),compra_da_lista.length);
+
+            compras_na_categoria.push(compra_da_concatenacao);            
+
+          }
+        })
+
+        msg_lista_2 = msg_lista_2 + compras_na_categoria + '\n';
+
+      }
+    });
+  }
+
+  function removedor_de_compras() {
+
+    criar_lista_de_compras('Atualmente você tem esses itens na sua lista de compras: \n');
+
+    mostrar_lista_de_compras()
+
+    let item_to_remove = prompt('Qual é o nome do item que você gostaria de remover?');
+
+    lista_de_compras.forEach((compra) => {
+
+      let compra_substring = compra.substring((compra.indexOf("-") + 1),compra.length);
+
+      if (compra_substring == item_to_remove) {
+        let posicao_compra = lista_de_compras.indexOf(compra);
+
+        console.log(posicao_compra);
+      
+        lista_de_compras.splice(posicao_compra, 1);
+
+        console.log(lista_de_compras);
+
+        criar_lista_de_compras (`Você removeu o item "${item_to_remove}" da sua lista de compras. Sua nova lista ficou assim:\n`) 
+
+        console.log(lista_de_compras);
+
+        mostrar_lista_de_compras()
+      }      
+     
+    });
+  }
+
+  //inicio do progrema
+  alert('Bem-vindo a sua lista de compras!');
+
+  let adicionar_novo_item = prompt('Você gostaria de adicionar algum item a sua lista de compras? Digite 1 para "sim", 2 para "não".');
+
+  // adicionar e remover itens no carrinho
+  while(adicionar_novo_item == 1) {
+    // adicionar item
+    let comida = prompt('Qual a comida que você deseja adicionar a sua lista compras?');
+    let categoria = prompt('A qual categoria essa comida pertence?');
+
+    categorias.push(categoria);
+    lista_de_compras.push(categoria + '-' + comida);
+    
+    adicionar_novo_item = prompt('Você gostaria de adicionar ou remover algum item a/na sua lista de compras? Digite 1 para "adicionar", 2 para "remover" e 3 para "finalizar a operação".');
+
+    // remover item
+    while(adicionar_novo_item == 2) {
+      
+      removedor_de_compras();
+
+      if (lista_de_compras.length == 0) {
+
+        adicionar_novo_item = prompt('Sua lista de compras esta vazia! Você gostaria de adicionar algum item na sua lista de compras? Digite 1 para "adicionar" ou 2 para "finalizar a operação".');
+        
+        if(adicionar_novo_item == 2){
+          adicionar_novo_item = 3;
+        }
+
+      } else {
+
+        adicionar_novo_item = prompt('Você gostaria de adicionar ou remover mais algum item a/na sua lista de compras? Digite 1 para "adicionar", 2 para "remover" e 3 para "finalizar a operação".');
+
+      }
+
+    }
+
+  }
+  //mostrar na tela a lista de compras
+  if (lista_de_compras.length == 0) {
+
+    msg_lista_1 = 'Você não tem nenhum item na sua lista de compras!';
+
+  } else {
+  
+    criar_lista_de_compras('Lista de compras: \n');
+
+  }
+
+  mostrar_lista_de_compras()
+
+</script>

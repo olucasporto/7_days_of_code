@@ -1,0 +1,10 @@
+<script>
+
+  let lista_de_compras = ['frutas-banana', 'frutas-pera']
+  let compra = lista_de_compras[0];
+  let remocao = 'banana';
+
+  let compra_to_remove = lista_de_compras.find(e => e.substring((compra.indexOf("-") + 1),compra.length) == remocao);
+  
+  console.log(compra_to_remove);
+</script>
