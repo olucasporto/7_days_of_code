@@ -1,0 +1,55 @@
+<script>
+
+  function gerar_numero_aleatorio() {
+    numero_aleatorio = Math.floor(Math.random() * 11); 
+  }
+
+  function ask_try_again() {
+    let continuar_jogando = prompt('Você deseja jogar novamente? Digite 1 para "sim" e 2 para "não".');
+      if(continuar_jogando == "1") {
+        alert('Opa, que legal! Vamos ao próximo desafio então!')
+      } else {
+        jogando = false;
+        alert('Obrigado por jogar conosco!')
+      }
+  }
+
+  function validador_de_chutes(chute) {
+    if(chute == numero_aleatorio){
+      alert('Boa!! Você acertou! Parabéns!')
+      tentativa=5;
+    } else {
+      alert('Que pena, você errou...');
+      tentativa++;
+    }
+  }
+
+  let jogando=true;
+  let numero_aleatorio;
+  let tentativa;
+  alert('Bem vindo ao chutatron! O desafio é acertar um número aleatório (de 1 a 10) gerado automaticamente pelo programa.');
+
+  while (jogando == true) {
+
+    gerar_numero_aleatorio();
+    tentativa = 1;
+
+    for (tentativa = 1; tentativa <= 3; tentativa++) {
+      if (tentativa == 1) {
+        let chute_1 = prompt('Número aleatório gerado! Qual é o seu primeiro chute?');
+        validador_de_chutes(chute_1);
+      }if (tentativa == 2) {
+        let chute_2 = prompt('Qual é o seu segundo chute?');
+        validador_de_chutes(chute_2);
+      }if (tentativa == 3) {
+        let chute_3 = prompt('Qual é o seu terceiro chute?');
+        validador_de_chutes(chute_3);
+      }if (tentativa == 4) {
+        alert('Não foi dessa vez que você ganhou! O número certo era ' + numero_aleatorio + '. Mas não desista!')
+      }
+    }
+
+    ask_try_again();
+  }
+
+</script>
