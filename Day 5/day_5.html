@@ -1,0 +1,46 @@
+<script>
+
+  //variaveis
+  let lista_de_compras = [];
+  let categorias = [];
+  let categorias_printadas = [];
+  let msg_final_1 = 'Lista de compras: \n';
+  let msg_final_2 = '';
+
+  //inicio do progrema
+  alert('Bem-vindo a sua lista de compras!');
+
+  let adicionar_novo_item = prompt('Você gostaria de adicionar algum item a sua lista de compras? Digite 1 para "sim", 2 para "não".');
+
+  //adicionar itens no carrinho
+  while(adicionar_novo_item == 1) {
+    let comida = prompt('Qual a comida que você deseja adicionar a sua lista compras?');
+    let categoria = prompt('A qual categoria essa comida pertence?');
+
+    categorias.push(categoria);
+    lista_de_compras.push(categoria + '-' + comida);
+    
+    adicionar_novo_item = prompt('Você gostaria de adicionar um novo item a sua lista de compras? Digite 1 para "sim", 2 para "não".');
+  }
+  //mostrar na tela a lista de compras
+  if (lista_de_compras.length == 0) {
+    msg_final_1 = 'Você não tem nenhum item na sua lista de compras!';
+  } else {
+    categorias.forEach((categoria_da_lista) => {
+      let compras_na_categoria = [];
+      let categoria_printada = categorias_printadas.find(e => e == categoria_da_lista);
+      if (categoria_printada == undefined) {
+        let categoria_formatada = categoria_da_lista[0].toUpperCase() + categoria_da_lista.substring(1).toLowerCase();
+        categorias_printadas.push(categoria_da_lista);
+        msg_final_2 = msg_final_2 + categoria_formatada + ': ';
+        lista_de_compras.forEach((compra_da_lista) => {
+          if(compra_da_lista.substring(0,(compra_da_lista.indexOf("-"))) == categoria_da_lista){
+            compras_na_categoria.push(compra_da_lista.substring((compra_da_lista.indexOf("-") + 1),compra_da_lista.length));            
+          }
+        })
+        msg_final_2 = msg_final_2 + compras_na_categoria + '\n';
+      }
+    });
+  }
+  alert(msg_final_1 + msg_final_2);
+</script>
