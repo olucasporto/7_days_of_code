@@ -5,19 +5,32 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-rl.question("Qual é o seu nome?\n", function (nome) {
-  rl.question("Quantos anos você tem?\n", function (idade) {
-    rl.question("Qual linguagem de programação você está estudando?\n", function (linguagem) {
-      console.log(`Olá ${nome}, você tem ${idade} anos e já está aprendendo ${linguagem}!`);
+let nome = "";
+let idade = "";
+let linguagem = "";
+let gostoPelaLinguagem = "";
 
-      rl.question(`Você gosta de estudar ${linguagem}? Responda com o número 1 para SIM ou 2 para NÃO.\n`, function (gostoPelaLinguagem) {
-        if(gostoPelaLinguagem == 1){
-          console.log("Muito bom! Continue estudando e você terá muito sucesso!");
-        } else {
-          console.log("Ahh que pena... Já tentou aprender outras linguagens?");
-        }
-      process.exit(0);
-      });
-    });
-  });
+rl.on('close', )
+
+rl.question("Qual é o seu nome?\n", function (nomeQ) {
+  nome = nomeQ;
+});
+  
+rl.question("Quantos anos você tem?\n", function (idadeQ) {
+  idade = idadeQ;
+});
+
+rl.question("Qual linguagem de programação você está estudando?\n", function (linguagemQ) {
+  linguagem = linguagemQ;
+  console.log(`Olá ${nome}, você tem ${idade} anos e já está aprendendo ${linguagem}!`);
+});
+
+rl.question(`Você gosta de estudar ${linguagem}? Responda com o número 1 para SIM ou 2 para NÃO.\n`, function (gostoPelaLinguagemQ) {
+  gostoPelaLinguagem = gostoPelaLinguagemQ;
+  if(gostoPelaLinguagem == 1){
+    console.log("Muito bom! Continue estudando e você terá muito sucesso!");
+  } else {
+    console.log("Ahh que pena... Já tentou aprender outras linguagens?");
+  }
+  rl.close();
 });
