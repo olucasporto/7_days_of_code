@@ -1,0 +1,51 @@
+<script>
+  function fraseDeEfeito() {
+    const citacoesLinguagens = {
+    "JAVASCRIPT":["Seja no StackOverflow ou no GitHub, a maior parte dos projetos, repositórios e requests tem alguma relação com JavaScript.","Para começar a se aventurar com JavaScript, tudo o que você precisa é de um editor de texto e um browser, o que só corrobora para a sua grande aceitação entre os programadores.","JavaScript pode não ser a linguagem mais fácil de aprender, mas é uma das mais importantes.", "A tecnologia geralmente é executada no navegador, tornando o aprendizado fácil e oferecendo uma interface bastante responsiva para rodar os códigos."],
+    "HTML":["Uma das vantagens de aprender HTML é que tem uma imensa comunidade fornecendo suporte e produção de conteúdo gratuito.","Uma das vantagens de aprender HTML é que ele pode ser facilmente aprendido.","Uma das vantagens de aprender HTML é que ele é totalmente gratuito, afinal, trata-se de um código aberto."],
+    "CSS":["Com as folhas em cascata, é possível realizar mudanças pontuais em um componente de um arquivo da web sem comprometer o resto do conteúdo.","A procura por aplicações responsivas aumentou ultimamente, por conta do uso cada vez mais frequente de smartphones e tablets para acesso à internet. Por essa razão, saber programar layouts flexíveis é uma boa habilidade para se ter hoje.","Com o CSS você não precisa escrever repetidamente como os elementos individuais se parecem. Isso economiza tempo, encurta o código e diminui a chance de erros."],
+    "JAVA":["Sendo uma linguagem Multi-Threaded, a linguagem Java apresenta capacidade para suportar processamentos múltiplos. Isso facilita bastante o trabalho de programação.","Ao utilizar Java, é possível criar aplicativos para dispositivos móveis, tais como smartphones e tablets. Em uma época em que tais dispositivos são comuns, essa linguagem ganha muita relevância.","A linguagem Java conta com um bom suporte, pois possui uma comunidade formada por vários usuários que trocam informações e interagem entre si, sanando dúvidas e dando sugestões.","Hoje em dia é possível contar com vários fóruns, grupos em redes sociais, vídeos tutoriais, bem como eventos realizados com o intuito de estudar mais as possibilidades que essa linguagem oferece."],
+    "PHP":["A Internet é um lugar hostil. A linguagem de programação PHP possui uma grande infraestrutura de segurança incorporada. Isso torna mais fácil proteger seu aplicativo. ","O  PHP é executado no servidor, portanto, o script do lado do servidor. PHP é a linguagem de script do lado do servidor mais popular.","A comunidade PHP é enorme. O que faz sentido visto que é amplamente usado. Em todo o mundo, existem muitos grupos de suporte para PHP. Até mesmo os grupos de usuários do Linux estão dispostos a ajudar. ","A documentação do PHP é tão madura quanto o PHP. O manual está disponível para cada versão do PHP. O manual contém comentários do usuário com muitos exemplos. Se o manual do usuário não atender às suas necessidades, a Internet está repleta de um grande número de tutoriais e exemplos."],
+    "PYTHON":["Python é uma das linguagens mais fáceis para se começar. Programas feitos com Python parecem com a língua inglesa. Por causa de sua simplicidade, a maioria dos cursos de nível iniciante usam o Python para introduzir conceito de programação para seus alunos.","Python é portátil o que significa que podemos rodar programas feito através de Python em diferentes sistemas operacionais sem fazer nenhuma mudança.","A linguagem Python é sem dúvidas uma grande evolução que está só no início e tende a impactar praticamente todas as áreas e profissões e cada vez mais as pessoas conhecem e sabem o que é Python."],
+    "RUBY":["Se você é inexperiente com linguagens de programação, talvez soe esquisito dizer que é prazeroso codar em Ruby, mas é a mais pura verdade. Criado justamente para ser divertido, simples e se assemelhar à escrita do inglês, o Ruby é intuitivo e fácil de entender, até mesmo para iniciantes - além de ser muito gostoso de se trabalhar!","Cativante e com uma sintaxe simples, o Ruby é amigável para aqueles que não têm nenhuma experiência com programação, permitindo que aprendizes dominem rapidamente a linguagem e foquem em entender a lógica por trás do que estão desenvolvendo, além de servir como uma ótima base para aprender outras linguagens.","Existem muitas linguagens de programação - o Tiobe Index lista mais de 270 - e o Ruby figura como a décima mais marcada em projetos que estão no GitHub. Ou seja, imagina quantas oportunidades no mercado você terá se aprender? O fato de ser uma das linguagens mais usadas também significa que existe uma comunidade rubista grande por todo o mundo. Teve alguma dúvida? Basta checar o Stack Overflow que alguém provavelmente já perguntou isso e foi prontamente auxiliado.","O Rails é o principal framework de Ruby, e não é à toa: ele é poderosíssimo. Rails é um framework que tem história. Ok, talvez você não saiba direito o que é um framework, então vamos lá: são coleções de bibliotecas que facilitam muito a vida do desenvolvedor e permitem construir aplicações de modo muito mais rápido. O Rails te alivia de um monte de coisas que você não precisa realmente saber e, por presumir o que você deseja (a não ser que você especifique o contrário), faz o trabalho por você. Este framework tem como uma de suas principais características ser adepto do código limpo e isso te ensina as melhores práticas de desenvolvimento.","A simplicidade e legibilidade dessa linguagem resultam em produtividade e faz da linguagem um ótimo fit para start ups - ou qualquer empresa que deseje entregar protótipos o mais cedo possível - enquanto o mundo corporativo tende a preferir linguagens como Java e PHP."]
+    };
+
+    try {
+      let posicaoFraseAleatoria = Math.floor(Math.random() * (citacoesLinguagens[tecnologiaEstudada].length + 1));
+      let fraseAleatoria = citacoesLinguagens[tecnologiaEstudada][posicaoFraseAleatoria];
+      alert(fraseAleatoria);
+    } catch (error) {
+      alert('Interessante. Essa parece ser bem legal!');
+    }
+  }
+
+  alert("Bem vindo ao decisiontron!");
+  
+  const decisaoFrontOuEnd = prompt('Você quer aprender Front-End ou Back-End? Digite 1 para Front-End e 2 para Back-End.');
+  if(decisaoFrontOuEnd == "1") {
+    const ReactOuVue = prompt('Você quer aprender React ou Vue? Digite 1 para React e 2 para Vue.');
+  } else if(decisaoFrontOuEnd == "2") {
+    const CSharpOuJava = prompt ('Você quer aprender C# ou Java? Digite 1 para C# e 2 para Java.')
+  };
+
+  prompt('Você deseja seguir se especializando na área escolhida ou pretende seguir se desenvolvendo para se tornar Fullstack? Digite 1 para caso decida se especializar na área ou 2 para caso decida se tornar Fullstack.');
+  
+  let tecnologiaEstudada = prompt('Quais são as tecnologias nas quais você gostaria de se especializar ou conhecer? Digite uma resposta de cada vez.').toUpperCase();
+  
+  fraseDeEfeito();
+
+  let respostaTecnologia = prompt('Tem mais alguma tecnologia que você gostaria de aprender? Responda "ok" caso tenha ou digite qualquer coisa caso não tenha.').toUpperCase();
+  if(respostaTecnologia == "OK") {
+    while (respostaTecnologia = "OK") {
+      if(respostaTecnologia =! "OK") {
+        break;
+      };
+
+      let tecnologiaEstudada = prompt('Qual é a outra tecnologia que você tem interesse em se especializar ou conhecer?').toUpperCase();
+      
+      fraseDeEfeito();
+    }
+  } else {
+    alert("Boa primo! Espero que tenha sucesso na sua caminhada!!!!");
+  };
+</script>
